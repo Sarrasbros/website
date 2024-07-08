@@ -55,7 +55,7 @@
 
     // Function to execute server-side script with orderData
     function executeApp(orderData) {
-      fetch('HTTP://ec2-18-222-47-15.us-east-2.compute.amazonaws.com:8080/send_sms', {
+      fetch('http://ec2-18-222-47-15.us-east-2.compute.amazonaws.com:8080/send_sms', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
