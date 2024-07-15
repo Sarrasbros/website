@@ -110,7 +110,7 @@ xhr.onreadystatechange = function() {
 xhr.send(JSON.stringify(formData));
 
 
-
+}
 
 $(document).ready(function () {
 // Call the function to generate pickup time options
