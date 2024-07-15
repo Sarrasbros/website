@@ -88,25 +88,27 @@ function submitOrder() {
         Paystat : 'unpaid',
     };
 
-    // Send data to order.php using AJAX
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "order.php", true);
-    xhr.setRequestHeader("Content-Type", "application/json");
+// Send data to order.php using AJAX
+var xhr = new XMLHttpRequest();
+xhr.open("POST", "https://sarrasbros.ca/order.php", true); // Ensure the URL uses HTTPS
+xhr.setRequestHeader("Content-Type", "application/json");
+
 xhr.onreadystatechange = function() {
     if (xhr.readyState === XMLHttpRequest.DONE) {
         console.log("Response from server:", xhr.responseText); // Log the response
         if (xhr.status === 200) {
             var response = JSON.parse(xhr.responseText);
             console.log("Order submitted successfully. ID: " + response[0]);
-             // Redirect to orderpreview.html with order ID as parameter
-                window.location.href = "order_submitted.html?orderId=" + response[0];
+            // Redirect to orderpreview.html with order ID as parameter
+            window.location.href = "order_submitted.html?orderId=" + response[0];
         } else {
             console.error("Error submitting order: " + xhr.statusText);
         }
     }
 };
-    xhr.send(JSON.stringify(formData));
-}
+
+xhr.send(JSON.stringify(formData));
+
 
 
 
