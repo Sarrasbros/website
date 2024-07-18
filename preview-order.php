@@ -1,6 +1,6 @@
 <?php
 
-$dsn = "mysql:host=132.148.214.231;dbname=Order";
+$dsn = "mysql:host=198.12.245.248;dbname=Order";
 $dbusername = "Faisalffpp";
 $dbuserpassword = "Giglios1967@";
 
@@ -10,7 +10,7 @@ try {
 
 
     // Fetch and output the updated order information
-$stmt2 = $pdo->prepare("SELECT * FROM Order_info WHERE OrderId = :orderID");
+$stmt2 = $pdo->prepare("SELECT * FROM Order_info WHERE OrderNumber = :orderID");
 $stmt2->bindParam(':orderID', $_GET['orderID'], PDO::PARAM_INT);
 $stmt2->execute();
 $updatedOrder = $stmt2->fetch(PDO::FETCH_ASSOC);

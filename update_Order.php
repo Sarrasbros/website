@@ -6,10 +6,9 @@ header("Access-Control-Allow-Headers: *");
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-$dsn = "mysql:host=132.148.214.231;dbname=Order";
+$dsn = "mysql:host=198.12.245.248;dbname=Order";
 $dbusername = "Faisalffpp";
 $dbuserpassword = "Giglios1967@";
-
 try {
     $pdo = new PDO($dsn, $dbusername, $dbuserpassword);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -26,8 +25,8 @@ try {
 
         //  Update PickUpTime
         if (isset($_POST['pickUpTime']) && $_POST['pickUpTime']) {
-            $stmt = $pdo->prepare("UPDATE Order_info SET PickUpTime = :pickUpTime WHERE OrderID = :orderID");
-            $stmt->execute(['pickUpTime' => $_POST['pickUpTime'], 'orderID' => $orderID]);
+            $stmt = $pdo->prepare("UPDATE Order_info SET time = :pickUpTime WHERE OrderID = :orderID");
+            $stmt->execute(['time' => $_POST['pickUpTime'], 'orderID' => $orderID]);
         }
         if (isset($_POST['PhoneNumber']) && $_POST['PhoneNumber']) {
             $stmt = $pdo->prepare("UPDATE Order_info SET PhoneNumber = :phoneNumber WHERE OrderID = :orderID");
