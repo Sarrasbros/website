@@ -10,10 +10,17 @@ function generatePickupTimes() {
     var startHour, endHour;
     if (currentDate.getDay() >= 1 && currentDate.getDay() <= 5) { // Monday to Friday
         startHour = 9;
+<<<<<<< HEAD
         endHour = 21;
     } else { // Saturday and Sunday
         startHour = 9;
         endHour = 20;
+=======
+        endHour = 22;
+    } else { // Saturday and Sunday
+        startHour = 9;
+        endHour = 21;
+>>>>>>> dcb1de19a57b04e2d4822d0d1ce06dc4115f3af9
     }
 
     // Check if the current time is within business hours
@@ -62,8 +69,13 @@ function submitOrder() {
     var total = document.getElementById("total").innerText;
 
     // Check if any of the required fields are empty
+<<<<<<< HEAD
     if (fullName === "" || phone === "") {
         alert("Please fill out all required fields.");
+=======
+    if (fullName === "" || phone === ""||time ==="") {
+        alert("Please fill out all required fields. (Required info is followed By *)");
+>>>>>>> dcb1de19a57b04e2d4822d0d1ce06dc4115f3af9
         return; // Prevent submission if any field is empty
     }
     // Check if no options for meat, cheese, bread type, bread size, sauces, and toppings are selected
@@ -88,28 +100,50 @@ function submitOrder() {
         Paystat : 'unpaid',
     };
 
+<<<<<<< HEAD
     // Send data to order.php using AJAX
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "order.php", true);
     xhr.setRequestHeader("Content-Type", "application/json");
+=======
+// Send data to order.php using AJAX
+var xhr = new XMLHttpRequest();
+xhr.open("POST", "https://sarrasbros.ca/order.php", true); // Ensure the URL uses HTTPS
+xhr.setRequestHeader("Content-Type", "application/json");
+
+>>>>>>> dcb1de19a57b04e2d4822d0d1ce06dc4115f3af9
 xhr.onreadystatechange = function() {
     if (xhr.readyState === XMLHttpRequest.DONE) {
         console.log("Response from server:", xhr.responseText); // Log the response
         if (xhr.status === 200) {
             var response = JSON.parse(xhr.responseText);
             console.log("Order submitted successfully. ID: " + response[0]);
+<<<<<<< HEAD
              // Redirect to orderpreview.html with order ID as parameter
                 window.location.href = "order_submitted.html?orderId=" + response[0];
+=======
+            // Redirect to orderpreview.html with order ID as parameter
+            window.location.href = "order_submitted.html?orderId=" + response[0];
+>>>>>>> dcb1de19a57b04e2d4822d0d1ce06dc4115f3af9
         } else {
             console.error("Error submitting order: " + xhr.statusText);
         }
     }
 };
+<<<<<<< HEAD
     xhr.send(JSON.stringify(formData));
 }
 
 
 
+=======
+
+xhr.send(JSON.stringify(formData));
+
+
+}
+
+>>>>>>> dcb1de19a57b04e2d4822d0d1ce06dc4115f3af9
 $(document).ready(function () {
 // Call the function to generate pickup time options
 generatePickupTimes();

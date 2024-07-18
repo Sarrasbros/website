@@ -46,7 +46,11 @@ $success = $stmt->execute([
    if ($success) {
     // Get the last inserted ID
     $lastInsertID = $pdo->lastInsertId();
+<<<<<<< HEAD
     echo json_encode([ $lastInsertID,]);
+=======
+    echo json_encode([ $lastInsertID, $total]);
+>>>>>>> dcb1de19a57b04e2d4822d0d1ce06dc4115f3af9
 } else {
     echo json_encode(['error' => 'Error inserting data.']);
 }
