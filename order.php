@@ -53,4 +53,6 @@ $success = $stmt->execute([
 } catch (PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
 }
+    error_reporting(E_ALL);
+ini_set('display_errors', 1);
 ?>
