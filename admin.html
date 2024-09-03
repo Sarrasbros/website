@@ -91,24 +91,7 @@
         <ul id="orders"><!-- Orders will be dynamically added here --></ul>
     </div>
 </div>
-<script>
-    async function fetchOrders() {
-        try {
-            const response = await fetch('https://api.sarrasbros.ca:8080/fetch_order', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ /* Add necessary data here */ })
-            });
-            const orders = await response.json();
-            updateOrderList(orders);
-        } catch (error) {
-            console.error('Error fetching orders:', error);
-        }
-    }
-    fetchOrders();
-</script>
+
 
 </body>
 </html>
